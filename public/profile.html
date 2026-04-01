@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>내 프로필</h1>
+
+```
+<div class="profile-card">
+  <div class="avatar">👤</div>
+  <div class="info">
+    <p><strong>아이디</strong></p>
+    <p id="username"></p>
+  </div>
+</div>
+
+<a href="/logout"><button class="logout">로그아웃</button></a>
+```
+
+  </div>
+
+  <script>
+    fetch('/me')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('username').innerText = data.username;
+      });
+  </script>
+
+</body>
+</html>
